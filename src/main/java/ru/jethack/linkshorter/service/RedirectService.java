@@ -13,7 +13,10 @@ public class RedirectService {
         this.linkRepository = linkRepository;
     }
 
-    public Link getOriginalLink(String shortLink){
-        return linkRepository.findByShortLink(shortLink);
+    public Link getOriginalLink(String shortLink) {
+        Link link = linkRepository.findByShortLink(shortLink);
+        link.setRedirectCount(link.getRedirectCount() + 1);
+        linkRepository.save(link);
+        return link;
     }
 }

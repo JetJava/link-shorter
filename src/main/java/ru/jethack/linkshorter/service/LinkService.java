@@ -27,7 +27,7 @@ public class LinkService {
             link = new Link();
             link.setOriginalLink(originalLink);
             link.setShortLink("/l/".concat(randomString));
-            link.setRequestCount(0);
+            link.setRedirectCount(0);
             saveLink(link);
         }
         return link;

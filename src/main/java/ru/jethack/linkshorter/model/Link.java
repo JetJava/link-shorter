@@ -18,7 +18,7 @@ public class Link {
 
     private String shortLink;
 
-    private Integer requestCount;
+    private Integer redirectCount;
 
     public Long getId() {
         return id;
@@ -44,11 +44,11 @@ public class Link {
         this.shortLink = shortLink;
     }
 
-    public Integer getRequestCount() {
-        return requestCount;
+    public Integer getRedirectCount() {
+        return redirectCount;
     }
 
-    public void setRequestCount(Integer requestCount) {
-        this.requestCount = requestCount;
+    public void setRedirectCount(Integer redirectCount) {
+        this.redirectCount = redirectCount;
     }
 }
