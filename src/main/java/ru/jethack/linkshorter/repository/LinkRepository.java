@@ -7,4 +7,5 @@ public interface LinkRepository extends JpaRepository<Link, Long> {
     Link findByOriginalLink(String originalLink);
     Link findByShortLink(String shortLink);
 
+
 }

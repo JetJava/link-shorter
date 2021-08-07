@@ -38,11 +38,11 @@ public class LinkGeneratorService {
         linkRepository.save(link);
     }
 
-    public Link getLinkByOriginalLink(String originalLink) {
+    private Link getLinkByOriginalLink(String originalLink) {
         return linkRepository.findByOriginalLink(originalLink);
     }
 
-    public Link getLinkByShortLink(String shortLink) {
+    private Link getLinkByShortLink(String shortLink) {
         return linkRepository.findByShortLink(shortLink);
     }
 }
