@@ -6,17 +6,18 @@ import ru.jethack.linkshorter.repository.LinkRepository;
 import ru.jethack.linkshorter.utul.RandomStringGenerator;
 
 @Service
-public class LinkService {
+public class LinkGeneratorService {
 
     final RandomStringGenerator randomStringGenerator;
     final LinkRepository linkRepository;
 
-    public LinkService(RandomStringGenerator randomStringGenerator, LinkRepository linkRepository) {
+    public LinkGeneratorService(RandomStringGenerator randomStringGenerator, LinkRepository linkRepository) {
         this.randomStringGenerator = randomStringGenerator;
         this.linkRepository = linkRepository;
     }
 
     public Link createShortLink(String originalLink) {
+        originalLink = originalLink.replaceFirst("^http.*://", "");
         Link link = getLinkByOriginalLink(originalLink);
         if (link == null) {
             String randomString = "";
