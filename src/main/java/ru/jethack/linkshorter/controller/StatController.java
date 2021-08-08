@@ -22,14 +22,14 @@ public class StatController {
 
     @GetMapping
     @RequestMapping("{shortLink}")
-    public Map<String, String> getLinkStat(@PathVariable String shortLink) {
+    public Map<String, Object> getLinkStat(@PathVariable String shortLink) {
         Link link = statService.getLink(shortLink);
 
-        Map<String, String> result = new HashMap<>(){{
+        Map<String, Object> result = new HashMap<>(){{
             put("link", "/l/".concat(link.getShortLink()));
             put("original", link.getOriginalLink());
-            put("rank", "1");
-            put("count", String.valueOf(link.getRedirectCount()));
+            put("rank", statService.getLinkRank(shortLink));
+            put("count", link.getRedirectCount());
         }};
 
         return result;

@@ -17,6 +17,6 @@ public class StatService {
     }
 
     public Integer getLinkRank(String shortLink){
-        return null;
+        return 1;
     }
 }
