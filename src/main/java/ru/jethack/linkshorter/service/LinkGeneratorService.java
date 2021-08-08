@@ -27,7 +27,7 @@ public class LinkGeneratorService {
 
             link = new Link();
             link.setOriginalLink(originalLink);
-            link.setShortLink("/l/".concat(randomString));
+            link.setShortLink(randomString);
             link.setRedirectCount(0);
             saveLink(link);
         }

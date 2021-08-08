@@ -20,7 +20,8 @@ public class LinkGeneratorController {
     @PostMapping
     public Map<String, String> generate(@RequestBody Map<String, String> original){
         Map<String, String> link= new HashMap<>();
-        link.put("link", linkGeneratorService.createShortLink(original.get("original")).getShortLink());
+        String shortUrl = "/l/".concat(linkGeneratorService.createShortLink(original.get("original")).getShortLink());
+        link.put("link", shortUrl);
         return link;
     }
 }

@@ -20,7 +20,7 @@ public class RedirectController {
     @GetMapping("{shortLink}")
     public String redirect(@PathVariable String shortLink){
 
-        Link link = redirectService.getOriginalLink("/l/".concat(shortLink));
+        Link link = redirectService.getOriginalLink(shortLink);
 
         return "redirect:http://".concat(link.getOriginalLink());
     }

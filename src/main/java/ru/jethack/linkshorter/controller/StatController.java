@@ -23,10 +23,10 @@ public class StatController {
     @GetMapping
     @RequestMapping("{shortLink}")
     public Map<String, String> getLinkStat(@PathVariable String shortLink) {
-        Link link = statService.getLink("/l/".concat(shortLink));
+        Link link = statService.getLink(shortLink);
 
         Map<String, String> result = new HashMap<>(){{
-            put("link", link.getShortLink());
+            put("link", "/l/".concat(link.getShortLink()));
             put("original", link.getOriginalLink());
             put("rank", "1");
             put("count", String.valueOf(link.getRedirectCount()));
