@@ -1,4 +1,4 @@
-package ru.jethack.linkshorter.utul;
+package ru.jethack.linkshorter.util;
 
 public interface RandomStringGenerator {
     String generate();

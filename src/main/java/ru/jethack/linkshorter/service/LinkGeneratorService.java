@@ -3,7 +3,7 @@ package ru.jethack.linkshorter.service;
 import org.springframework.stereotype.Service;
 import ru.jethack.linkshorter.model.Link;
 import ru.jethack.linkshorter.repository.LinkRepository;
-import ru.jethack.linkshorter.utul.RandomStringGenerator;
+import ru.jethack.linkshorter.util.RandomStringGenerator;
 
 @Service
 public class LinkGeneratorService {

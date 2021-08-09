@@ -30,7 +30,7 @@ public class StatController {
             result.add(new HashMap<>(){{
                 put("link", "/l/".concat(link.getShortLink()));
                 put("original", link.getOriginalLink());
-                put("rank", 1);//statService.getLinkRank(shortLink));
+                put("rank", statService.getLinkRank(link.getShortLink()));
                 put("count", link.getRedirectCount());
             }});
         }
@@ -44,7 +44,7 @@ public class StatController {
         Map<String, Object> result = new HashMap<>(){{
             put("link", "/l/".concat(link.getShortLink()));
             put("original", link.getOriginalLink());
-            put("rank", 1);//statService.getLinkRank(shortLink));
+            put("rank", statService.getLinkRank(shortLink));
             put("count", link.getRedirectCount());
         }};
 

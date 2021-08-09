@@ -1,8 +1,8 @@
-package ru.jethack.linkshorter.utul.impl;
+package ru.jethack.linkshorter.util.impl;
 
 import org.apache.commons.lang3.RandomStringUtils;
 import org.springframework.stereotype.Service;
-import ru.jethack.linkshorter.utul.RandomStringGenerator;
+import ru.jethack.linkshorter.util.RandomStringGenerator;
 
 @Service
 public class RandomStringGeneratorImpl implements RandomStringGenerator {

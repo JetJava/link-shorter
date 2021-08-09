@@ -22,4 +22,8 @@ public class StatService {
         List<Link> links = linkRepository.findAllOrderByRedirectCount();
         return links;
     }
+
+    public Integer getLinkRank (String shortLink){
+        return linkRepository.getLinkRank(shortLink);
+    }
 }
