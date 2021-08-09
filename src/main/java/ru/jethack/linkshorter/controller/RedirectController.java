@@ -4,8 +4,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.client.HttpServerErrorException;
 import ru.jethack.linkshorter.model.Link;
 import ru.jethack.linkshorter.service.RedirectService;
+
+import java.util.HashMap;
 
 @Controller
 @RequestMapping("/l/")

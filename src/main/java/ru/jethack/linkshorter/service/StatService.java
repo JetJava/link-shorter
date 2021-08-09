@@ -4,6 +4,8 @@ import org.springframework.stereotype.Service;
 import ru.jethack.linkshorter.model.Link;
 import ru.jethack.linkshorter.repository.LinkRepository;
 
+import java.util.List;
+
 @Service
 public class StatService {
     final LinkRepository linkRepository;
@@ -16,7 +18,8 @@ public class StatService {
         return linkRepository.findByShortLink(shortLink);
     }
 
-    public Integer getLinkRank(String shortLink){
-        return 1;
+    public List<Link> getAllLinkRank(){
+        List<Link> links = linkRepository.findAllOrderByRedirectCount();
+        return links;
     }
 }

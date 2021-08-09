@@ -8,6 +8,6 @@ import ru.jethack.linkshorter.utul.RandomStringGenerator;
 public class RandomStringGeneratorImpl implements RandomStringGenerator {
     @Override
     public String generate() {
-        return RandomStringUtils.randomAscii(6,8);
+        return RandomStringUtils.randomAlphanumeric(6, 8);
     }
 }
