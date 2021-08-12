@@ -6,6 +6,7 @@ import ru.jethack.linkshorter.repository.LinkRepository;
 import ru.jethack.linkshorter.service.LinkGeneratorService;
 import ru.jethack.linkshorter.util.RandomStringGenerator;
 
+
 @Service
 public class LinkGeneratorServiceImpl implements LinkGeneratorService {
 
@@ -18,10 +19,11 @@ public class LinkGeneratorServiceImpl implements LinkGeneratorService {
     }
 
     public Link createShortLink(String originalLink) {
-        originalLink = originalLink.replaceFirst("^http.*://", ""); //TODO: Add protocol handling
+        originalLink = originalLink.toLowerCase().trim();
+        originalLink = originalLink.contains("://") ? originalLink : "http://".concat(originalLink);
         Link link = getLinkByOriginalLink(originalLink);
         if (link == null) {
-            String randomString = "";
+            String randomString;
             do {
                 randomString = randomStringGenerator.generate();
             } while (getLinkByShortLink(randomString) != null);

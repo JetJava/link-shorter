@@ -23,6 +23,6 @@ public class RedirectController {
 
         Link link = redirectService.getOriginalLink(shortLink);
 
-        return "redirect:http://".concat(link.getOriginalLink());
+        return "redirect:".concat(link.getOriginalLink());
     }
 }
