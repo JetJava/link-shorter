@@ -3,6 +3,7 @@ package ru.jethack.linkshorter.controller;
 
 import org.springframework.web.bind.annotation.*;
 import ru.jethack.linkshorter.service.LinkGeneratorService;
+import ru.jethack.linkshorter.service.impl.LinkGeneratorServiceImpl;
 
 import java.util.HashMap;
 import java.util.Map;

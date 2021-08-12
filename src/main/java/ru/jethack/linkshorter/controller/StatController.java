@@ -1,9 +1,9 @@
 package ru.jethack.linkshorter.controller;
 
-import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.*;
 import ru.jethack.linkshorter.model.Link;
 import ru.jethack.linkshorter.service.StatService;
+import ru.jethack.linkshorter.service.impl.StatServiceImpl;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -24,7 +24,7 @@ public class StatController {
     public List<Map<String, Object>> getAllLinkStat(@RequestParam(defaultValue = "0") Integer page,
                                                     @RequestParam(defaultValue = "100") Integer count) {
         if (count > 100) count = 100;
-        List<Link> links = statService.getAllLinkRank(page, count);
+        List<Link> links = statService.getAllLinksRank(page, count);
         List<Map<String, Object>> result = new ArrayList<>();
         for (Link link : links) {
             result.add(new HashMap<>() {{
