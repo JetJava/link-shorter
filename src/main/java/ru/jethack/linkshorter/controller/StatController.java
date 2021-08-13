@@ -27,6 +27,7 @@ public class StatController {
         if (count > 100) count = 100;
         List<Link> links = statService.getAllLinksRank(page, count);
         List<Map<String, Object>> result = new ArrayList<>();
+        //long m1 = System.currentTimeMillis();
         for (Link link : links) {
             result.add(new HashMap<>() {{
                 put("link", "/l/".concat(link.getShortLink()));
@@ -35,6 +36,8 @@ public class StatController {
                 put("count", link.getRedirectCount());
             }});
         }
+        //long m2 = System.currentTimeMillis();
+        //System.out.println(m2 - m1);
         return result;
     }
 

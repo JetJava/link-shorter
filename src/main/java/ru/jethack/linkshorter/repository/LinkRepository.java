@@ -11,6 +11,6 @@ public interface LinkRepository extends JpaRepository<Link, Long> {
     Link findByShortLink(String shortLink);
 
     @Query(value = "select rnk from (select *, dense_rank() over(order by redirect_count desc) rnk from link) as x " +
-            "where x.short_link = ?1", nativeQuery = true)
+            "where x.short_link = :shortLink", nativeQuery = true)
     Integer getLinkRank(String shortLink);
 }
