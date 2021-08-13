@@ -1,5 +1,6 @@
 package ru.jethack.linkshorter.controller;
 
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 import ru.jethack.linkshorter.model.Link;
 import ru.jethack.linkshorter.service.StatService;
@@ -20,7 +21,7 @@ public class StatController {
         this.statService = statService;
     }
 
-    @GetMapping
+    @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
     public List<Map<String, Object>> getAllLinkStat(@RequestParam(defaultValue = "0") Integer page,
                                                     @RequestParam(defaultValue = "100") Integer count) {
         if (count > 100) count = 100;
@@ -37,7 +38,7 @@ public class StatController {
         return result;
     }
 
-    @GetMapping("{shortLink}")
+    @GetMapping(value = "{shortLink}", produces = MediaType.APPLICATION_JSON_VALUE)
     public Map<String, Object> getLinkStat(@PathVariable String shortLink) {
         Link link = statService.getLink(shortLink);
 

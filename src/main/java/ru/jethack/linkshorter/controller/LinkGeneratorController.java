@@ -1,6 +1,7 @@
 package ru.jethack.linkshorter.controller;
 
 
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 import ru.jethack.linkshorter.service.LinkGeneratorService;
 import ru.jethack.linkshorter.service.impl.LinkGeneratorServiceImpl;
@@ -18,7 +19,7 @@ public class LinkGeneratorController {
         this.linkGeneratorService = linkGeneratorService;
     }
 
-    @PostMapping
+    @PostMapping(produces = MediaType.APPLICATION_JSON_VALUE)
     public Map<String, String> generate(@RequestBody Map<String, String> original){
         Map<String, String> link= new HashMap<>();
         String shortUrl = "/l/".concat(linkGeneratorService.createShortLink(original.get("original")).getShortLink());
