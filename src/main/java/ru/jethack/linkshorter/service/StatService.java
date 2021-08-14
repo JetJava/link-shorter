@@ -3,10 +3,10 @@ package ru.jethack.linkshorter.service;
 import ru.jethack.linkshorter.model.Link;
 
 import java.util.List;
+import java.util.Map;
 
 public interface StatService {
     Link getLink(String shortLink);
-    Integer getLinkRank(String shortLink);
-    List<Link> getAllLinksRank(Integer page, Integer count);
-
+    Map<String, Object> getLinkRank(String shortLink);
+    List<Map<String, Object>> getAllLinksRank(Integer page, Integer count);
 }
