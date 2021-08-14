@@ -17,7 +17,7 @@ public interface LinkRepository extends JpaRepository<Link, Long> {
             "from link offset :offset limit :count", nativeQuery = true)
     List<Map<String, Object>> getLinkRankList(Integer offset, Integer count);
 
-    @Query(value = "select *, dense_rank() over(order by redirect_count desc) rank " +
-            "from link where short_link = :shortLink", nativeQuery = true)
+    @Query(value = "select * from (select *, dense_rank() over(order by redirect_count desc) rank from link) as x " +
+            "where x.short_link = :shortLink", nativeQuery = true)
     Map<String, Object> getLinkRank(String shortLink);
 }
